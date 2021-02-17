@@ -1,0 +1,744 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="HeaderVO"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Variable
+    Name="p_Doc"
+    Kind="viewcriteria"
+    Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <Variable
+    Name="p_org"
+    Kind="where"
+    Type="java.lang.String">
+    <TransientExpression><![CDATA[adf.context.sessionScope.orgId]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="mnj.mfg.model.views.HeaderVO_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <ViewAccessor
+    Name="buyerLOV1"
+    ViewObjectName="mnj.mfg.model.buyerLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="style1"
+    ViewObjectName="mnj.mfg.model.lov.style"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="CustomerLOV1"
+    ViewObjectName="mnj.mfg.model.lov.CustomerLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="TransactionTypeVO1"
+    ViewObjectName="mnj.mfg.model.lov.TransactionTypeVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="InvOrgVO1"
+    ViewObjectName="mnj.mfg.model.lov.InvOrgVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_StyleName"
+    ListVOName="style1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_StyleName_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="StyleName"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Season"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="StyleName"/>
+      <Item Value="Season"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="StyleName"/>
+      <Item Value="CurrentStyle"/>
+      <Item Value="Season"/>
+      <Item Value="CurrentSeason"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Attribute5"
+    ListVOName="CustomerLOV1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_Attribute5_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Attribute5"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="BuyerId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="KnownAs"/>
+      <Item Value="CustAccountId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="KnownAs"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_TransactionType"
+    ListVOName="TransactionTypeVO1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_TransactionType_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="TransactionType"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Transaction"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="TransactionType"/>
+      <Item Value="TType"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_WashEmbPrintInvorg"
+    ListVOName="InvOrgVO1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_WashEmbPrintInvorg_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="WashEmbPrintInvorg"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="WashEmbPrintInv"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OrganizationName"/>
+      <Item Value="OrganizationId"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <SQLQuery>
+    <![CDATA[SELECT HeaderEO.HEADER_ID, 
+       HeaderEO.RECEIVE_NO, 
+       HeaderEO.INVOICE_NO, 
+       HeaderEO.COLOR, 
+       HeaderEO.BUYER_ID, 
+       HeaderEO.STYLE_NAME, 
+       HeaderEO.SEASON, 
+       HeaderEO.DATE_OF_GRN,
+       HeaderEO.CREATED_BY, 
+       HeaderEO.CREATION_DATE, 
+       HeaderEO.LAST_UPDATED_BY, 
+       HeaderEO.LAST_UPDATE_DATE, 
+       HeaderEO.ORG_ID, 
+       HeaderEO.HEADER_NO, 
+       HeaderEO.LOT_NUMBER, 
+       HeaderEO.ATTRIBUTE1, 
+       HeaderEO.ATTRIBUTE2, 
+       HeaderEO.ATTRIBUTE3, 
+       HeaderEO.ATTRIBUTE4, 
+       HeaderEO.ATTRIBUTE5, 
+       HeaderEO.ATTRIBUTE6, 
+       HeaderEO.ATTRIBUTE7, 
+       HeaderEO.ATTRIBUTE8, 
+       HeaderEO.ATTRIBUTE9, 
+       HeaderEO.ATTRIBUTE10, 
+       HeaderEO.ATTRIBUTE11, 
+       HeaderEO.ATTRIBUTE12, 
+       HeaderEO.ATTRIBUTE13, 
+       HeaderEO.ATTRIBUTE14, 
+       HeaderEO.ATTRIBUTE15, 
+       HeaderEO.SALESORDER_ID, 
+       HeaderEO.TRANSACTION_TYPE, 
+       HeaderEO.TRANSACTION, 
+       HeaderEO.UPDATE_ON,
+       HeaderEO.Delivered_By,
+       HeaderEO.Received_By,
+HeaderEO.WASH_EMB_PRINT_INV,
+HeaderEO.WASH_EMB_PRINT_INVORG,
+HeaderEO.REFERENCE,
+--(SELECT LH.ATTRIBUTE1 BUYER_N FROM MNJ_MFG_ISSUE_REC_WASH_L_H LH WHERE LH.HEADER_ID=HeaderEO.HEADER_ID )
+(SELECT listagg (ATTRIBUTE1 , ' , ')within group(order by HEADER_ID) FROM ( select distinct  LH.ATTRIBUTE1,lh.HEADER_ID FROM MNJ_MFG_ISSUE_REC_WASH_L_H LH WHERE LH.HEADER_ID=HeaderEO.HEADER_ID) ) BUYER_N ,
+(SELECT listagg (SEASON , ' , ')within group(order by HEADER_ID) FROM ( select distinct  LH.SEASON,lh.HEADER_ID FROM  MNJ_MFG_ISSUE_REC_WASH_L_H LH WHERE LH.HEADER_ID=HeaderEO.HEADER_ID) ) SEASON_N ,
+(SELECT listagg (STYLE_NAME , ' , ')within group(order by HEADER_ID) FROM ( select distinct  LH.STYLE_NAME,lh.HEADER_ID FROM  MNJ_MFG_ISSUE_REC_WASH_L_H LH WHERE LH.HEADER_ID=HeaderEO.HEADER_ID) ) STYLE_NAME_N  ,
+HeaderEO.ISSUE_TO_WASH_STATUS ,
+(select  RECEIVE_TO_WASH_STATUS from  MNJ_MFG_ISSUE_REC_WASH_H HeaderEO2 where  HeaderEO.receive_no = HeaderEO2.receipt_challan_no AND rownum=1) RECEIVE_TO_WASH_STATUS  ,
+
+
+(select sum (l2.Quantity) 
+from  MNJ_MFG_ISSUE_REC_WASH_L_H l , MNJ_MFG_ISSUE_REC_WASH_L l2 
+where l.line_id = L2.HEADER_ID
+and l.header_id =  HeaderEO.HEADER_ID  ) Issued_quantity ,
+
+
+(select sum (l2.Attribute4) 
+from  MNJ_MFG_ISSUE_REC_WASH_L_H l , MNJ_MFG_ISSUE_REC_WASH_D l2 
+where l.line_id = L2.HEADER_ID
+and l.header_id =  HeaderEO.HEADER_ID  ) Received_quantity 
+
+
+
+FROM MNJ_MFG_ISSUE_REC_WASH_H HeaderEO
+where HeaderEO.ORG_ID = :p_org
+order by HeaderEO.HEADER_ID desc]]>
+  </SQLQuery>
+  <EntityUsage
+    Name="HeaderEO"
+    Entity="mnj.mfg.model.entities.HeaderEO"/>
+  <ViewAttribute
+    Name="HeaderId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="HeaderId"
+    EntityUsage="HeaderEO"
+    AliasName="HEADER_ID"/>
+  <ViewAttribute
+    Name="ReceiveNo"
+    PrecisionRule="true"
+    EntityAttrName="ReceiveNo"
+    EntityUsage="HeaderEO"
+    AliasName="RECEIVE_NO">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="mnj.mfg.model.views.HeaderVO.ReceiveNo_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="InvoiceNo"
+    PrecisionRule="true"
+    EntityAttrName="InvoiceNo"
+    EntityUsage="HeaderEO"
+    AliasName="INVOICE_NO"/>
+  <ViewAttribute
+    Name="Color"
+    PrecisionRule="true"
+    EntityAttrName="Color"
+    EntityUsage="HeaderEO"
+    AliasName="COLOR">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BuyerId"
+    PrecisionRule="true"
+    EntityAttrName="BuyerId"
+    EntityUsage="HeaderEO"
+    AliasName="BUYER_ID"/>
+  <ViewAttribute
+    Name="StyleName"
+    PrecisionRule="true"
+    EntityAttrName="StyleName"
+    EntityUsage="HeaderEO"
+    AliasName="STYLE_NAME"
+    LOVName="LOV_StyleName">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+        <LABEL
+          ResId="mnj.mfg.model.views.HeaderVO.StyleName_LABEL"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Season"
+    PrecisionRule="true"
+    EntityAttrName="Season"
+    EntityUsage="HeaderEO"
+    AliasName="SEASON">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DateOfGrn"
+    PrecisionRule="true"
+    EntityAttrName="DateOfGrn"
+    EntityUsage="HeaderEO"
+    AliasName="DATE_OF_GRN"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="HeaderEO"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="CreationDate"
+    PrecisionRule="true"
+    EntityAttrName="CreationDate"
+    EntityUsage="HeaderEO"
+    AliasName="CREATION_DATE"/>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="HeaderEO"
+    AliasName="LAST_UPDATED_BY"/>
+  <ViewAttribute
+    Name="LastUpdateDate"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdateDate"
+    EntityUsage="HeaderEO"
+    AliasName="LAST_UPDATE_DATE"/>
+  <ViewAttribute
+    Name="OrgId"
+    PrecisionRule="true"
+    EntityAttrName="OrgId"
+    EntityUsage="HeaderEO"
+    AliasName="ORG_ID"/>
+  <ViewAttribute
+    Name="HeaderNo"
+    PrecisionRule="true"
+    EntityAttrName="HeaderNo"
+    EntityUsage="HeaderEO"
+    AliasName="HEADER_NO"/>
+  <ViewAttribute
+    Name="LotNumber"
+    PrecisionRule="true"
+    EntityAttrName="LotNumber"
+    EntityUsage="HeaderEO"
+    AliasName="LOT_NUMBER"/>
+  <ViewAttribute
+    Name="Attribute1"
+    PrecisionRule="true"
+    EntityAttrName="Attribute1"
+    EntityUsage="HeaderEO"
+    AliasName="ATTRIBUTE1">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="mnj.mfg.model.views.HeaderVO.Attribute1_LABEL"/>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Attribute2"
+    PrecisionRule="true"
+    EntityAttrName="Attribute2"
+    EntityUsage="HeaderEO"
+    AliasName="ATTRIBUTE2">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="mnj.mfg.model.views.HeaderVO.Attribute2_LABEL"/>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Attribute3"
+    PrecisionRule="true"
+    EntityAttrName="Attribute3"
+    EntityUsage="HeaderEO"
+    AliasName="ATTRIBUTE3"/>
+  <ViewAttribute
+    Name="Attribute4"
+    PrecisionRule="true"
+    EntityAttrName="Attribute4"
+    EntityUsage="HeaderEO"
+    AliasName="ATTRIBUTE4"/>
+  <ViewAttribute
+    Name="Attribute5"
+    PrecisionRule="true"
+    EntityAttrName="Attribute5"
+    EntityUsage="HeaderEO"
+    AliasName="ATTRIBUTE5"
+    LOVName="LOV_Attribute5">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="mnj.mfg.model.views.HeaderVO.Attribute5_LABEL"/>
+        <DISPLAYWIDTH
+          Value="30"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Attribute6"
+    PrecisionRule="true"
+    EntityAttrName="Attribute6"
+    EntityUsage="HeaderEO"
+    AliasName="ATTRIBUTE6"/>
+  <ViewAttribute
+    Name="Attribute7"
+    PrecisionRule="true"
+    EntityAttrName="Attribute7"
+    EntityUsage="HeaderEO"
+    AliasName="ATTRIBUTE7"/>
+  <ViewAttribute
+    Name="Attribute8"
+    PrecisionRule="true"
+    EntityAttrName="Attribute8"
+    EntityUsage="HeaderEO"
+    AliasName="ATTRIBUTE8"/>
+  <ViewAttribute
+    Name="Attribute9"
+    PrecisionRule="true"
+    EntityAttrName="Attribute9"
+    EntityUsage="HeaderEO"
+    AliasName="ATTRIBUTE9"/>
+  <ViewAttribute
+    Name="Attribute10"
+    PrecisionRule="true"
+    EntityAttrName="Attribute10"
+    EntityUsage="HeaderEO"
+    AliasName="ATTRIBUTE10"/>
+  <ViewAttribute
+    Name="Attribute11"
+    PrecisionRule="true"
+    EntityAttrName="Attribute11"
+    EntityUsage="HeaderEO"
+    AliasName="ATTRIBUTE11"/>
+  <ViewAttribute
+    Name="Attribute12"
+    PrecisionRule="true"
+    EntityAttrName="Attribute12"
+    EntityUsage="HeaderEO"
+    AliasName="ATTRIBUTE12"/>
+  <ViewAttribute
+    Name="Attribute13"
+    PrecisionRule="true"
+    EntityAttrName="Attribute13"
+    EntityUsage="HeaderEO"
+    AliasName="ATTRIBUTE13"/>
+  <ViewAttribute
+    Name="Attribute14"
+    PrecisionRule="true"
+    EntityAttrName="Attribute14"
+    EntityUsage="HeaderEO"
+    AliasName="ATTRIBUTE14"/>
+  <ViewAttribute
+    Name="Attribute15"
+    PrecisionRule="true"
+    EntityAttrName="Attribute15"
+    EntityUsage="HeaderEO"
+    AliasName="ATTRIBUTE15"/>
+  <ViewAttribute
+    Name="SalesorderId"
+    PrecisionRule="true"
+    EntityAttrName="SalesorderId"
+    EntityUsage="HeaderEO"
+    AliasName="SALESORDER_ID"/>
+  <ViewAttribute
+    Name="TransactionType"
+    PrecisionRule="true"
+    EntityAttrName="TransactionType"
+    EntityUsage="HeaderEO"
+    AliasName="TRANSACTION_TYPE"
+    LOVName="LOV_TransactionType">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Transaction"
+    PrecisionRule="true"
+    EntityAttrName="Transaction"
+    EntityUsage="HeaderEO"
+    AliasName="TRANSACTION"/>
+  <ViewAttribute
+    Name="UpdateOn"
+    PrecisionRule="true"
+    AliasName="UPDATE_ON"
+    EntityAttrName="UpdateOn"
+    EntityUsage="HeaderEO">
+    <TransientExpression><![CDATA[adf.currentDate]]></TransientExpression>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DeliveredBy"
+    PrecisionRule="true"
+    EntityAttrName="DeliveredBy"
+    EntityUsage="HeaderEO"
+    AliasName="DELIVERED_BY">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ReceivedBy"
+    PrecisionRule="true"
+    EntityAttrName="ReceivedBy"
+    EntityUsage="HeaderEO"
+    AliasName="RECEIVED_BY">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="WashEmbPrintInv"
+    PrecisionRule="true"
+    EntityAttrName="WashEmbPrintInv"
+    EntityUsage="HeaderEO"
+    AliasName="WASH_EMB_PRINT_INV"/>
+  <ViewAttribute
+    Name="WashEmbPrintInvorg"
+    PrecisionRule="true"
+    EntityAttrName="WashEmbPrintInvorg"
+    EntityUsage="HeaderEO"
+    AliasName="WASH_EMB_PRINT_INVORG"
+    LOVName="LOV_WashEmbPrintInvorg">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+        <DISPLAYWIDTH
+          Value="30"/>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Reference"
+    PrecisionRule="true"
+    EntityAttrName="Reference"
+    EntityUsage="HeaderEO"
+    AliasName="REFERENCE">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BuyerN"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="BUYER_N"
+    Expression="BUYER_N"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SeasonN"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SEASON_N"
+    Expression="SEASON_N"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="StyleNameN"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="STYLE_NAME_N"
+    Expression="STYLE_NAME_N"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="IssueToWashStatus"
+    PrecisionRule="true"
+    EntityAttrName="IssueToWashStatus"
+    EntityUsage="HeaderEO"
+    AliasName="ISSUE_TO_WASH_STATUS"/>
+  <ViewAttribute
+    Name="ReceiveToWashStatus"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="50"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="RECEIVE_TO_WASH_STATUS"
+    Expression="RECEIVE_TO_WASH_STATUS"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="IssuedQuantity"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="ISSUED_QUANTITY"
+    Expression="ISSUED_QUANTITY"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="mnj.mfg.model.views.HeaderVO.IssuedQuantity_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ReceivedQuantity"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="RECEIVED_QUANTITY"
+    Expression="RECEIVED_QUANTITY"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="mnj.mfg.model.views.HeaderVO.ReceivedQuantity_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BuyerName"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="240"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="BUYER_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewCriteria
+    Name="HeaderVOCriteria"
+    ViewObjectName="mnj.mfg.model.views.HeaderVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="true"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="vcrow14"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="ReceiveNo"
+        ViewAttribute="ReceiveNo"
+        Operator="STARTSWITH"
+        Conjunction="AND"
+        Value=":p_Doc"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewLinkAccessor
+    Name="LineHeaderEOView"
+    ViewLink="mnj.mfg.model.views.MnjMfgIssueRecWashLHFkLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ReceiveDetailVO"
+    ViewLink="mnj.mfg.model.views.IssueRecWashDFkLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="LineVO"
+    ViewLink="mnj.mfg.model.views.IssueRecWashLFkLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

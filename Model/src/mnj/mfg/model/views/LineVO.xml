@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="LineVO"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="FillBposVO1"
+    ViewObjectName="mnj.mfg.model.lov.FillBposVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ProductionTypeVO1"
+    ViewObjectName="mnj.mfg.model.lov.ProductionTypeVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="WashTypeVO1"
+    ViewObjectName="mnj.mfg.model.lov.WashTypeVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="InvOrgVO1"
+    ViewObjectName="mnj.mfg.model.lov.InvOrgVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_Attribute1"
+    ListVOName="FillBposVO1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_Attribute1_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Attribute1"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Attribute2"/>
+      <Item Value="Attribute3"/>
+      <Item Value="Quantity"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="BpoNo"/>
+      <Item Value="Stn"/>
+      <Item Value="Color"/>
+      <Item Value="OrderedQty"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="BpoNo"/>
+      <Item Value="Stn"/>
+      <Item Value="Color"/>
+      <Item Value="OrderedQty"/>
+      <Item Value="StyleName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_WashType"
+    ListVOName="WashTypeVO1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_WashType_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="WashType"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ProductionType"
+    ListVOName="ProductionTypeVO1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_ProductionType_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ProductionType"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_WashEmdPrintInvorg"
+    ListVOName="InvOrgVO1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_WashEmdPrintInvorg_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="WashEmdPrintInvorg"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="WashEmdPrintInv"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OrganizationName"/>
+      <Item Value="OrganizationId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="OrganizationName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <SQLQuery>
+    <![CDATA[SELECT LineEO.HEADER_ID, 
+       LineEO.LINE_ID, 
+       LineEO.QUANTITY, 
+       LineEO.CUT_DATE, 
+       LineEO.STITCH_PREP_DATE, 
+       LineEO.WASHING_PLANT, 
+       LineEO.SEND_WASH_DATE, 
+       LineEO.SEND_BY, 
+       LineEO.CARRIED_BY, 
+       LineEO.DEL_CHALLAN_NO, 
+       LineEO.REMARKS, 
+       LineEO.ATTRIBUTE1, 
+       LineEO.ATTRIBUTE2, 
+       LineEO.ATTRIBUTE3, 
+       LineEO.ATTRIBUTE4, 
+       LineEO.ATTRIBUTE5, 
+       LineEO.ATTRIBUTE6, 
+       LineEO.ATTRIBUTE7, 
+       LineEO.ATTRIBUTE8, 
+       LineEO.ATTRIBUTE9, 
+       LineEO.ATTRIBUTE10, 
+       LineEO.ATTRIBUTE11, 
+       LineEO.ATTRIBUTE12, 
+       LineEO.ATTRIBUTE13, 
+       LineEO.ATTRIBUTE14, 
+       LineEO.ATTRIBUTE15, 
+       LineEO.SALESORDER_ID, 
+       LineEO.LAST_UPDATE_DATE, 
+       LineEO.LAST_UPDATED_BY, 
+       LineEO.CREATION_DATE, 
+       LineEO.CREATED_BY, 
+       LineEO.ORG_ID, 
+       LineEO.CHALLAN_NO, 
+       LineEO.WASH_TYPE, 
+       LineEO.PRODUCTION_TYPE, 
+       LineEO.WASH_EMD_PRINT_INV, 
+       LineEO.WASH_EMD_PRINT_INVORG, 
+       LineEO.ISSUANCE_CHALLAN_NO, 
+       LineEO.ISSUANCE_DATE, 
+       LineEO.Received_By,
+       LineEO.BPO_ID,
+v.BPO,
+v.SEASON,
+v.STYLE,
+v.COLOR,
+v.WASH_NAME WASH
+FROM MNJ_MFG_ISSUE_REC_WASH_L LineEO,XX_ORDER_INFO_v V
+where LineEO.BPO_ID=V.BPO_ID
+ORDER BY LineEO.ISSUANCE_CHALLAN_NO]]>
+  </SQLQuery>
+  <EntityUsage
+    Name="LineEO"
+    Entity="mnj.mfg.model.entities.LineEO"/>
+  <ViewAttribute
+    Name="HeaderId"
+    PrecisionRule="true"
+    EntityAttrName="HeaderId"
+    EntityUsage="LineEO"
+    AliasName="HEADER_ID"/>
+  <ViewAttribute
+    Name="LineId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LineId"
+    EntityUsage="LineEO"
+    AliasName="LINE_ID"/>
+  <ViewAttribute
+    Name="Quantity"
+    PrecisionRule="true"
+    EntityAttrName="Quantity"
+    EntityUsage="LineEO"
+    AliasName="QUANTITY"/>
+  <ViewAttribute
+    Name="CutDate"
+    PrecisionRule="true"
+    EntityAttrName="CutDate"
+    EntityUsage="LineEO"
+    AliasName="CUT_DATE"/>
+  <ViewAttribute
+    Name="StitchPrepDate"
+    PrecisionRule="true"
+    EntityAttrName="StitchPrepDate"
+    EntityUsage="LineEO"
+    AliasName="STITCH_PREP_DATE"/>
+  <ViewAttribute
+    Name="WashingPlant"
+    PrecisionRule="true"
+    EntityAttrName="WashingPlant"
+    EntityUsage="LineEO"
+    AliasName="WASHING_PLANT"/>
+  <ViewAttribute
+    Name="SendWashDate"
+    PrecisionRule="true"
+    EntityAttrName="SendWashDate"
+    EntityUsage="LineEO"
+    AliasName="SEND_WASH_DATE"/>
+  <ViewAttribute
+    Name="SendBy"
+    PrecisionRule="true"
+    EntityAttrName="SendBy"
+    EntityUsage="LineEO"
+    AliasName="SEND_BY"/>
+  <ViewAttribute
+    Name="CarriedBy"
+    PrecisionRule="true"
+    EntityAttrName="CarriedBy"
+    EntityUsage="LineEO"
+    AliasName="CARRIED_BY"/>
+  <ViewAttribute
+    Name="DelChallanNo"
+    PrecisionRule="true"
+    EntityAttrName="DelChallanNo"
+    EntityUsage="LineEO"
+    AliasName="DEL_CHALLAN_NO"/>
+  <ViewAttribute
+    Name="Remarks"
+    PrecisionRule="true"
+    EntityAttrName="Remarks"
+    EntityUsage="LineEO"
+    AliasName="REMARKS"/>
+  <ViewAttribute
+    Name="Attribute1"
+    PrecisionRule="true"
+    EntityAttrName="Attribute1"
+    EntityUsage="LineEO"
+    AliasName="ATTRIBUTE1"
+    LOVName="LOV_Attribute1">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Attribute2"
+    PrecisionRule="true"
+    EntityAttrName="Attribute2"
+    EntityUsage="LineEO"
+    AliasName="ATTRIBUTE2"/>
+  <ViewAttribute
+    Name="Attribute3"
+    PrecisionRule="true"
+    EntityAttrName="Attribute3"
+    EntityUsage="LineEO"
+    AliasName="ATTRIBUTE3"/>
+  <ViewAttribute
+    Name="Attribute4"
+    PrecisionRule="true"
+    EntityAttrName="Attribute4"
+    EntityUsage="LineEO"
+    AliasName="ATTRIBUTE4"/>
+  <ViewAttribute
+    Name="Attribute5"
+    PrecisionRule="true"
+    EntityAttrName="Attribute5"
+    EntityUsage="LineEO"
+    AliasName="ATTRIBUTE5"/>
+  <ViewAttribute
+    Name="Attribute6"
+    PrecisionRule="true"
+    EntityAttrName="Attribute6"
+    EntityUsage="LineEO"
+    AliasName="ATTRIBUTE6"/>
+  <ViewAttribute
+    Name="Attribute7"
+    PrecisionRule="true"
+    EntityAttrName="Attribute7"
+    EntityUsage="LineEO"
+    AliasName="ATTRIBUTE7"/>
+  <ViewAttribute
+    Name="Attribute8"
+    PrecisionRule="true"
+    EntityAttrName="Attribute8"
+    EntityUsage="LineEO"
+    AliasName="ATTRIBUTE8"/>
+  <ViewAttribute
+    Name="Attribute9"
+    PrecisionRule="true"
+    EntityAttrName="Attribute9"
+    EntityUsage="LineEO"
+    AliasName="ATTRIBUTE9"/>
+  <ViewAttribute
+    Name="Attribute10"
+    PrecisionRule="true"
+    EntityAttrName="Attribute10"
+    EntityUsage="LineEO"
+    AliasName="ATTRIBUTE10"/>
+  <ViewAttribute
+    Name="Attribute11"
+    PrecisionRule="true"
+    EntityAttrName="Attribute11"
+    EntityUsage="LineEO"
+    AliasName="ATTRIBUTE11"/>
+  <ViewAttribute
+    Name="Attribute12"
+    PrecisionRule="true"
+    EntityAttrName="Attribute12"
+    EntityUsage="LineEO"
+    AliasName="ATTRIBUTE12"/>
+  <ViewAttribute
+    Name="Attribute13"
+    PrecisionRule="true"
+    EntityAttrName="Attribute13"
+    EntityUsage="LineEO"
+    AliasName="ATTRIBUTE13"/>
+  <ViewAttribute
+    Name="Attribute14"
+    PrecisionRule="true"
+    EntityAttrName="Attribute14"
+    EntityUsage="LineEO"
+    AliasName="ATTRIBUTE14"/>
+  <ViewAttribute
+    Name="Attribute15"
+    PrecisionRule="true"
+    EntityAttrName="Attribute15"
+    EntityUsage="LineEO"
+    AliasName="ATTRIBUTE15"/>
+  <ViewAttribute
+    Name="SalesorderId"
+    PrecisionRule="true"
+    EntityAttrName="SalesorderId"
+    EntityUsage="LineEO"
+    AliasName="SALESORDER_ID"/>
+  <ViewAttribute
+    Name="LastUpdateDate"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdateDate"
+    EntityUsage="LineEO"
+    AliasName="LAST_UPDATE_DATE"/>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="LineEO"
+    AliasName="LAST_UPDATED_BY"/>
+  <ViewAttribute
+    Name="CreationDate"
+    PrecisionRule="true"
+    EntityAttrName="CreationDate"
+    EntityUsage="LineEO"
+    AliasName="CREATION_DATE"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="LineEO"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="OrgId"
+    PrecisionRule="true"
+    EntityAttrName="OrgId"
+    EntityUsage="LineEO"
+    AliasName="ORG_ID"/>
+  <ViewAttribute
+    Name="ChallanNo"
+    PrecisionRule="true"
+    EntityAttrName="ChallanNo"
+    EntityUsage="LineEO"
+    AliasName="CHALLAN_NO"/>
+  <ViewAttribute
+    Name="WashType"
+    PrecisionRule="true"
+    EntityAttrName="WashType"
+    EntityUsage="LineEO"
+    AliasName="WASH_TYPE"
+    LOVName="LOV_WashType">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ProductionType"
+    PrecisionRule="true"
+    EntityAttrName="ProductionType"
+    EntityUsage="LineEO"
+    AliasName="PRODUCTION_TYPE"
+    LOVName="LOV_ProductionType">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="WashEmdPrintInv"
+    PrecisionRule="true"
+    EntityAttrName="WashEmdPrintInv"
+    EntityUsage="LineEO"
+    AliasName="WASH_EMD_PRINT_INV"/>
+  <ViewAttribute
+    Name="WashEmdPrintInvorg"
+    PrecisionRule="true"
+    EntityAttrName="WashEmdPrintInvorg"
+    EntityUsage="LineEO"
+    AliasName="WASH_EMD_PRINT_INVORG"
+    LOVName="LOV_WashEmdPrintInvorg">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="IssuanceChallanNo"
+    PrecisionRule="true"
+    EntityAttrName="IssuanceChallanNo"
+    EntityUsage="LineEO"
+    AliasName="ISSUANCE_CHALLAN_NO"/>
+  <ViewAttribute
+    Name="IssuanceDate"
+    PrecisionRule="true"
+    EntityAttrName="IssuanceDate"
+    EntityUsage="LineEO"
+    AliasName="ISSUANCE_DATE"/>
+  <ViewAttribute
+    Name="ReceivedBy"
+    PrecisionRule="true"
+    AliasName="RECEIVED_BY"
+    EntityAttrName="ReceivedBy"
+    EntityUsage="LineEO"/>
+  <ViewAttribute
+    Name="BpoId"
+    PrecisionRule="true"
+    EntityAttrName="BpoId"
+    EntityUsage="LineEO"
+    AliasName="BPO_ID"/>
+  <ViewAttribute
+    Name="Bpo"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="BPO"
+    Expression="BPO"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Season"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SEASON"
+    Expression="SEASON"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Style"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="STYLE"
+    Expression="STYLE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Color"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="COLOR"
+    Expression="COLOR"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Wash"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="WASH"
+    Expression="WASH"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewLinkAccessor
+    Name="IssueInseemSizeDVO"
+    ViewLink="mnj.mfg.model.views.WashInseamSizeFkLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="similarPopSizeVO"
+    ViewLink="mnj.mfg.model.views.LineSizeVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

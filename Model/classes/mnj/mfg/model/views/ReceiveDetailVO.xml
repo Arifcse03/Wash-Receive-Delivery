@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ReceiveDetailVO"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  SelectList="ReceiveDetailEO.HEADER_ID, 
+       ReceiveDetailEO.LINE_ID, 
+       ReceiveDetailEO.RECEVING_DETAIL, 
+       ReceiveDetailEO.RECEVING_CHALLAN_NO, 
+       ReceiveDetailEO.RCV_FROM_WASH_DATE, 
+       ReceiveDetailEO.WASH_RCV_QTY, 
+       ReceiveDetailEO.MAJOR_ISSUES, 
+       ReceiveDetailEO.ACTION_TAKEN, 
+       ReceiveDetailEO.CURRECTION_REQ_AREA, 
+       ReceiveDetailEO.REMARKS, 
+       ReceiveDetailEO.ATTRIBUTE1, 
+       ReceiveDetailEO.ATTRIBUTE2, 
+       ReceiveDetailEO.ATTRIBUTE3, 
+       ReceiveDetailEO.ATTRIBUTE4, 
+       ReceiveDetailEO.ATTRIBUTE5, 
+       ReceiveDetailEO.ATTRIBUTE6, 
+       ReceiveDetailEO.ATTRIBUTE7, 
+       ReceiveDetailEO.ATTRIBUTE8, 
+       ReceiveDetailEO.ATTRIBUTE9, 
+       ReceiveDetailEO.ATTRIBUTE10, 
+       ReceiveDetailEO.ATTRIBUTE11, 
+       ReceiveDetailEO.ATTRIBUTE12, 
+       ReceiveDetailEO.ATTRIBUTE13, 
+       ReceiveDetailEO.ATTRIBUTE14, 
+       ReceiveDetailEO.ATTRIBUTE15, 
+       ReceiveDetailEO.SALESORDER_ID, 
+       ReceiveDetailEO.LAST_UPDATE_DATE, 
+       ReceiveDetailEO.LAST_UPDATED_BY, 
+       ReceiveDetailEO.CREATION_DATE, 
+       ReceiveDetailEO.CREATED_BY, 
+       ReceiveDetailEO.ORG_ID, 
+       ReceiveDetailEO.WASH_EMD_PRINT_INVORG, 
+       ReceiveDetailEO.WASH_EMD_PRINT_INV, 
+       ReceiveDetailEO.WASH_TYPE, 
+       ReceiveDetailEO.PRODUCTION_TYPE, 
+       ReceiveDetailEO.RECEVING_DATE"
+  FromList="MNJ_MFG_ISSUE_REC_WASH_D ReceiveDetailEO"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="RevBPOVO1"
+    ViewObjectName="mnj.mfg.model.lov.RevBPOVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="InvOrgVO1"
+    ViewObjectName="mnj.mfg.model.lov.InvOrgVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ProductionTypeVO1"
+    ViewObjectName="mnj.mfg.model.lov.ProductionTypeVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="WashTypeVO1"
+    ViewObjectName="mnj.mfg.model.lov.WashTypeVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="BPO_LOV1"
+    ViewObjectName="mnj.mfg.model.lov.BPO_LOV">
+    <ParameterMap>
+      <PIMap Variable="P_Buyer">
+        <TransientExpression><![CDATA[adf.context.sessionScope.CustomerIdS]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_Season">
+        <TransientExpression><![CDATA[adf.context.sessionScope.season]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_Style">
+        <TransientExpression><![CDATA[adf.context.sessionScope.style]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ListBinding
+    Name="LOV_WashEmdPrintInvorg"
+    ListVOName="InvOrgVO1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_WashEmdPrintInvorg_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="WashEmdPrintInvorg"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="WashEmdPrintInv"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OrganizationName"/>
+      <Item Value="OrganizationId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="OrganizationName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_WashType"
+    ListVOName="WashTypeVO1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_WashType_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="WashType"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ProductionType"
+    ListVOName="ProductionTypeVO1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_ProductionType_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ProductionType"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Attribute1"
+    ListVOName="BPO_LOV1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_Attribute1_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Attribute1"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Attribute2"/>
+      <Item Value="Attribute3"/>
+      <Item Value="Attribute4"/>
+      <Item Value="ProductionType"/>
+      <Item Value="WashType"/>
+      <Item Value="RecevingChallanNo"/>
+      <Item Value="Attribute7"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Bpo"/>
+      <Item Value="Stn"/>
+      <Item Value="Color"/>
+      <Item Value="Quantity"/>
+      <Item Value="ProductionType"/>
+      <Item Value="WashType"/>
+      <Item Value="IssuanceChallanNo"/>
+      <Item Value="WashUnwash"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Bpo"/>
+      <Item Value="Stn"/>
+      <Item Value="Color"/>
+      <Item Value="Quantity"/>
+      <Item Value="ProductionType"/>
+      <Item Value="WashUnwash"/>
+      <Item Value="WashType"/>
+      <Item Value="IssuanceChallanNo"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"
+      Name="BPO_LOVCriteria"/>
+  </ListBinding>
+  <EntityUsage
+    Name="ReceiveDetailEO"
+    Entity="mnj.mfg.model.entities.ReceiveDetailEO"/>
+  <ViewAttribute
+    Name="HeaderId"
+    PrecisionRule="true"
+    EntityAttrName="HeaderId"
+    EntityUsage="ReceiveDetailEO"
+    AliasName="HEADER_ID"/>
+  <ViewAttribute
+    Name="LineId"
+    PrecisionRule="true"
+    EntityAttrName="LineId"
+    EntityUsage="ReceiveDetailEO"
+    AliasName="LINE_ID"/>
+  <ViewAttribute
+    Name="RecevingDetail"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="RecevingDetail"
+    EntityUsage="ReceiveDetailEO"
+    AliasName="RECEVING_DETAIL"/>
+  <ViewAttribute
+    Name="RecevingChallanNo"
+    PrecisionRule="true"
+    EntityAttrName="RecevingChallanNo"
+    EntityUsage="ReceiveDetailEO"
+    AliasName="RECEVING_CHALLAN_NO"/>
+  <ViewAttribute
+    Name="RcvFromWashDate"
+    PrecisionRule="true"
+    EntityAttrName="RcvFromWashDate"
+    EntityUsage="ReceiveDetailEO"
+    AliasName="RCV_FROM_WASH_DATE"/>
+  <ViewAttribute
+    Name="WashRcvQty"
+    PrecisionRule="true"
+    EntityAttrName="WashRcvQty"
+    EntityUsage="ReceiveDetailEO"
+    AliasName="WASH_RCV_QTY"/>
+  <ViewAttribute
+    Name="MajorIssues"
+    PrecisionRule="true"
+    EntityAttrName="MajorIssues"
+    EntityUsage="ReceiveDetailEO"
+    AliasName="MAJOR_ISSUES"/>
+  <ViewAttribute
+    Name="ActionTaken"
+    PrecisionRule="true"
+    EntityAttrName="ActionTaken"
+    EntityUsage="ReceiveDetailEO"
+    AliasName="ACTION_TAKEN"/>
+  <ViewAttribute
+    Name="CurrectionReqArea"
+    PrecisionRule="true"
+    EntityAttrName="CurrectionReqArea"
+    EntityUsage="ReceiveDetailEO"
+    AliasName="CURRECTION_REQ_AREA"/>
+  <ViewAttribute
+    Name="Remarks"
+    PrecisionRule="true"
+    EntityAttrName="Remarks"
+    EntityUsage="ReceiveDetailEO"
+    AliasName="REMARKS"/>
+  <ViewAttribute
+    Name="Attribute1"
+    PrecisionRule="true"
+    EntityAttrName="Attribute1"
+    EntityUsage="ReceiveDetailEO"
+    AliasName="ATTRIBUTE1"
+    LOVName="LOV_Attribute1">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Attribute2"
+    PrecisionRule="true"
+    EntityAttrName="Attribute2"
+    EntityUsage="ReceiveDetailEO"
+    AliasName="ATTRIBUTE2"/>
+  <ViewAttribute
+    Name="Attribute3"
+    PrecisionRule="true"
+    EntityAttrName="Attribute3"
+    EntityUsage="ReceiveDetailEO"
+    AliasName="ATTRIBUTE3"/>
+  <ViewAttribute
+    Name="Attribute4"
+    PrecisionRule="true"
+    EntityAttrName="Attribute4"
+    EntityUsage="ReceiveDetailEO"
+    AliasName="ATTRIBUTE4"/>
+  <ViewAttribute
+    Name="Attribute5"
+    PrecisionRule="true"
+    EntityAttrName="Attribute5"
+    EntityUsage="ReceiveDetailEO"
+    AliasName="ATTRIBUTE5"/>
+  <ViewAttribute
+    Name="Attribute6"
+    PrecisionRule="true"
+    EntityAttrName="Attribute6"
+    EntityUsage="ReceiveDetailEO"
+    AliasName="ATTRIBUTE6"/>
+  <ViewAttribute
+    Name="Attribute7"
+    PrecisionRule="true"
+    EntityAttrName="Attribute7"
+    EntityUsage="ReceiveDetailEO"
+    AliasName="ATTRIBUTE7"/>
+  <ViewAttribute
+    Name="Attribute8"
+    PrecisionRule="true"
+    EntityAttrName="Attribute8"
+    EntityUsage="ReceiveDetailEO"
+    AliasName="ATTRIBUTE8"/>
+  <ViewAttribute
+    Name="Attribute9"
+    PrecisionRule="true"
+    EntityAttrName="Attribute9"
+    EntityUsage="ReceiveDetailEO"
+    AliasName="ATTRIBUTE9"/>
+  <ViewAttribute
+    Name="Attribute10"
+    PrecisionRule="true"
+    EntityAttrName="Attribute10"
+    EntityUsage="ReceiveDetailEO"
+    AliasName="ATTRIBUTE10"/>
+  <ViewAttribute
+    Name="Attribute11"
+    PrecisionRule="true"
+    EntityAttrName="Attribute11"
+    EntityUsage="ReceiveDetailEO"
+    AliasName="ATTRIBUTE11"/>
+  <ViewAttribute
+    Name="Attribute12"
+    PrecisionRule="true"
+    EntityAttrName="Attribute12"
+    EntityUsage="ReceiveDetailEO"
+    AliasName="ATTRIBUTE12"/>
+  <ViewAttribute
+    Name="Attribute13"
+    PrecisionRule="true"
+    EntityAttrName="Attribute13"
+    EntityUsage="ReceiveDetailEO"
+    AliasName="ATTRIBUTE13"/>
+  <ViewAttribute
+    Name="Attribute14"
+    PrecisionRule="true"
+    EntityAttrName="Attribute14"
+    EntityUsage="ReceiveDetailEO"
+    AliasName="ATTRIBUTE14"/>
+  <ViewAttribute
+    Name="Attribute15"
+    PrecisionRule="true"
+    EntityAttrName="Attribute15"
+    EntityUsage="ReceiveDetailEO"
+    AliasName="ATTRIBUTE15"/>
+  <ViewAttribute
+    Name="SalesorderId"
+    PrecisionRule="true"
+    EntityAttrName="SalesorderId"
+    EntityUsage="ReceiveDetailEO"
+    AliasName="SALESORDER_ID"/>
+  <ViewAttribute
+    Name="LastUpdateDate"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdateDate"
+    EntityUsage="ReceiveDetailEO"
+    AliasName="LAST_UPDATE_DATE"/>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="ReceiveDetailEO"
+    AliasName="LAST_UPDATED_BY"/>
+  <ViewAttribute
+    Name="CreationDate"
+    PrecisionRule="true"
+    EntityAttrName="CreationDate"
+    EntityUsage="ReceiveDetailEO"
+    AliasName="CREATION_DATE"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="ReceiveDetailEO"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="OrgId"
+    PrecisionRule="true"
+    EntityAttrName="OrgId"
+    EntityUsage="ReceiveDetailEO"
+    AliasName="ORG_ID"/>
+  <ViewAttribute
+    Name="WashEmdPrintInvorg"
+    PrecisionRule="true"
+    EntityAttrName="WashEmdPrintInvorg"
+    EntityUsage="ReceiveDetailEO"
+    AliasName="WASH_EMD_PRINT_INVORG"
+    LOVName="LOV_WashEmdPrintInvorg">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="WashEmdPrintInv"
+    PrecisionRule="true"
+    EntityAttrName="WashEmdPrintInv"
+    EntityUsage="ReceiveDetailEO"
+    AliasName="WASH_EMD_PRINT_INV"/>
+  <ViewAttribute
+    Name="WashType"
+    PrecisionRule="true"
+    EntityAttrName="WashType"
+    EntityUsage="ReceiveDetailEO"
+    AliasName="WASH_TYPE"
+    LOVName="LOV_WashType">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ProductionType"
+    PrecisionRule="true"
+    EntityAttrName="ProductionType"
+    EntityUsage="ReceiveDetailEO"
+    AliasName="PRODUCTION_TYPE"
+    LOVName="LOV_ProductionType">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RecevingDate"
+    PrecisionRule="true"
+    EntityAttrName="RecevingDate"
+    EntityUsage="ReceiveDetailEO"
+    AliasName="RECEVING_DATE"/>
+  <ViewLinkAccessor
+    Name="ReciveSizeInseemVO"
+    ViewLink="mnj.mfg.model.views.RecInseamSizeDFkLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

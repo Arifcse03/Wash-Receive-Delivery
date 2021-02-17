@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="TransactionTypeVO"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  RowClass="mnj.mfg.model.lov.TransactionTypeVORowImpl"
+  ComponentClass="mnj.mfg.model.lov.TransactionTypeVOImpl"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="mnj.mfg.model.lov.TransactionTypeVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <SQLQuery>
+    <![CDATA[SELECT 'After Stitch Issue to Embroidery' TRANSACTION_TYPE,'STICHING' T_TYPE FROM DUAL
+UNION ALL
+SELECT 'After Stitch Issue to Print' TRANSACTION_TYPE,'STICHING' T_TYPE FROM DUAL
+UNION ALL
+SELECT 'After Stitch Issue to 3rd Party' TRANSACTION_TYPE,'STICHING' T_TYPE FROM DUAL
+UNION ALL
+SELECT 'After Finish Issue to Embroidery' TRANSACTION_TYPE,'FINISHING' T_TYPE FROM DUAL
+UNION ALL
+SELECT 'After Finish Issue to Print' TRANSACTION_TYPE,'FINISHING' T_TYPE FROM DUAL
+UNION ALL
+SELECT 'After Finish Issue to 3rd party' TRANSACTION_TYPE,'FINISHING' T_TYPE FROM DUAL
+UNION ALL
+SELECT 'Ready For Finish Department' TRANSACTION_TYPE,'STICHING' T_TYPE FROM DUAL
+ORDER BY TRANSACTION_TYPE]]>
+  </SQLQuery>
+  <ViewAttribute
+    Name="Attribute1"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="250"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="ATTRIBUTE1"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="250"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SizeInseam"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="500"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SIZE_INSEAM"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Quantity"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="QUANTITY"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="HeaderId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="HEADER_ID"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TransactionType"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="TRANSACTION_TYPE"
+    SQLType="VARCHAR"
+    Expression="TRANSACTION_TYPE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="32"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TType"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="9"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="T_TYPE"
+    SQLType="VARCHAR"
+    Expression="T_TYPE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="9"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

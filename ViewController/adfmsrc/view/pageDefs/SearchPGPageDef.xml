@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.62.29" id="SearchPGPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="HeaderVO1" RangeSize="25" DataControl="MainAMDataControl"
+              id="HeaderVO1Iterator"/>
+    <invokeAction id="SessionValues" Binds="setSessionValues" Refresh="always"/>
+    <searchRegion Criteria="HeaderVOCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="HeaderVO1Iterator" id="HeaderVOCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <action IterBinding="HeaderVO1Iterator" id="setCurrentRowWithKey"
+            RequiresUpdateModel="false" Action="setCurrentRowWithKey">
+      <NamedData NDName="rowKey" NDType="java.lang.String"/>
+    </action>
+    <action id="Rollback" RequiresUpdateModel="false"
+            Action="rollbackTransaction" DataControl="MainAMDataControl"/>
+    <action IterBinding="HeaderVO1Iterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="MainAMDataControl"/>
+    <action IterBinding="HeaderVO1Iterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <methodAction id="setSessionValues"
+                  InstanceName="MainAMDataControl.dataProvider"
+                  DataControl="MainAMDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="setSessionValues"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="orgId" NDValue="#{viewScope.OrgId}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="userId" NDValue="#{viewScope.UserId}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="respId" NDValue="#{viewScope.RespId}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="respAppl" NDValue="#{viewScope.RespApplId}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <tree IterBinding="HeaderVO1Iterator" id="HeaderVO1">
+      <nodeDefinition DefName="mnj.mfg.model.views.HeaderVO" Name="HeaderVO10">
+        <AttrNames>
+          <Item Value="ReceiveNo"/>
+          <Item Value="DateOfGrn"/>
+          <Item Value="TransactionType"/>
+          <Item Value="Transaction"/>
+          <Item Value="WashEmbPrintInvorg"/>
+          <Item Value="UpdateOn"/>
+          <Item Value="DeliveredBy"/>
+          <Item Value="ReceivedBy"/>
+          <Item Value="BuyerN"/>
+          <Item Value="SeasonN"/>
+          <Item Value="StyleNameN"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="HeaderVO1Iterator" id="setCurrentRowWithKeyValue"
+            RequiresUpdateModel="false" Action="setCurrentRowWithKeyValue">
+      <NamedData NDName="rowKey" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ReciveSizeInseemDEO"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  DBObjectType="table"
+  DBObjectName="MNJ_MFG_REC_INSEAM_SIZE_D"
+  AliasName="ReciveSizeInseemDEO"
+  BindingStyle="OracleName"
+  UseGlueCode="false"
+  RowClass="mnj.mfg.model.entities.ReciveSizeInseemDEOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Access|DML"/>
+    <AttrArray Name="_publishEvents"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="RecevingDetail"
+    ColumnName="RECEVING_DETAIL"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_REC_INSEAM_SIZE_D">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RecevingSizeDet"
+    IsNotNull="true"
+    ColumnName="RECEVING_SIZE_DET"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_REC_INSEAM_SIZE_D"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Inseam"
+    Precision="500"
+    ColumnName="INSEAM"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_MFG_REC_INSEAM_SIZE_D">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SizeInseam"
+    Precision="500"
+    ColumnName="SIZE_INSEAM"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_MFG_REC_INSEAM_SIZE_D">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Quantity"
+    ColumnName="QUANTITY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_REC_INSEAM_SIZE_D">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute1"
+    Precision="250"
+    ColumnName="ATTRIBUTE1"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_MFG_REC_INSEAM_SIZE_D">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="250"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SalesorderId"
+    Precision="15"
+    Scale="0"
+    ColumnName="SALESORDER_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_REC_INSEAM_SIZE_D">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdateDate"
+    ColumnName="LAST_UPDATE_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="MNJ_MFG_REC_INSEAM_SIZE_D">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdatedBy"
+    Precision="15"
+    Scale="0"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_REC_INSEAM_SIZE_D">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreationDate"
+    ColumnName="CREATION_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="MNJ_MFG_REC_INSEAM_SIZE_D">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    Precision="15"
+    Scale="0"
+    ColumnName="CREATED_BY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_REC_INSEAM_SIZE_D">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OrgId"
+    ColumnName="ORG_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_REC_INSEAM_SIZE_D">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RewashReceiveDate"
+    ColumnName="REWASH_RECEIVE_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="MNJ_MFG_REC_INSEAM_SIZE_D">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RewashSendQty"
+    ColumnName="REWASH_SEND_QTY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_REC_INSEAM_SIZE_D">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RewashSendDate"
+    ColumnName="REWASH_SEND_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="MNJ_MFG_REC_INSEAM_SIZE_D">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="ReceiveDetailEO"
+    Association="mnj.mfg.model.entities.RecInseamSizeDFkAssoc"
+    AssociationEnd="mnj.mfg.model.entities.RecInseamSizeDFkAssoc.ReceiveDetailEO"
+    AssociationOtherEnd="mnj.mfg.model.entities.RecInseamSizeDFkAssoc.ReciveSizeInseemDEO"
+    Type="mnj.mfg.model.entities.ReceiveDetailEOImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="RecInseamSizeDPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="REC_INSEAM_SIZE_D_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="mnj.mfg.model.entities.ReciveSizeInseemDEO.RecevingSizeDet"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC00427293">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C00427293"/>
+      <Attr Name="_checkCondition" Value='"RECEVING_SIZE_DET" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="mnj.mfg.model.entities.ReciveSizeInseemDEO.RecevingSizeDet"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="RecInseamSizeDFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="ISSUE_REC_WASH_D_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="REC_INSEAM_SIZE_D_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="mnj.mfg.model.entities.ReciveSizeInseemDEO.RecevingDetail"/>
+    </AttrArray>
+  </Key>
+</Entity>
