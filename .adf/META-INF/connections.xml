@@ -10,14 +10,14 @@
             <Contents>1531</Contents>
          </StringRefAddr>
          <StringRefAddr addrType="hostname">
-            <Contents>192.168.200.117</Contents>
+            <Contents>192.168.200.136</Contents>
          </StringRefAddr>
          <StringRefAddr addrType="user">
             <Contents>apps</Contents>
          </StringRefAddr>
          <SecureRefAddr addrType="password"/>
          <StringRefAddr addrType="serviceName">
-            <Contents>adf2</Contents>
+            <Contents>adf1</Contents>
          </StringRefAddr>
          <StringRefAddr addrType="DeployPassword">
             <Contents>true</Contents>
